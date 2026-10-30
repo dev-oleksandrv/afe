@@ -39,6 +39,28 @@ Because instructions on their own are suggestions. The most common gap is a proj
 
   You get a write-up of where each pillar stands, the symptoms already visible, and next steps ranked by value for the effort. See [a real example](examples/streamready-review.md).
 
+### Review any project with Claude Code
+
+You don't need to copy anything into your project. Open Claude Code in the root of the repository you want reviewed and paste this prompt:
+
+```text
+Review the current project using the AFE (Agent-Friendly Engineering) guidelines from https://github.com/dev-oleksandrv/afe.
+
+1. Fetch and read both files in full:
+   - https://raw.githubusercontent.com/dev-oleksandrv/afe/main/GUIDE.md
+   - https://raw.githubusercontent.com/dev-oleksandrv/afe/main/REVIEW.md
+2. Follow REVIEW.md exactly: its ground rules, its procedure, and its review template.
+3. Run the checks: yes.
+4. Don't modify the project. Write the finished review to ../afe-review-<project-name>.md and give me a short summary of the top next steps.
+```
+
+Notes:
+
+- Change `Run the checks: yes` to `no` if the agent shouldn't run setup, tests, or builds. The review then marks those results as "not run".
+- Claude Code asks for permission to fetch the two URLs. If web access is blocked, download [GUIDE.md](GUIDE.md) and [REVIEW.md](REVIEW.md) somewhere outside your project and point the prompt at those local paths instead.
+- The same prompt works with other coding agents that can read URLs or local files.
+- For a high-stakes project, run the review in a fresh session so the agent has no prior context about the code.
+
 ## Files
 
 | File | For | What's in it |
