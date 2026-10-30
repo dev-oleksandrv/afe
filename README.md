@@ -51,12 +51,13 @@ Review the current project using the AFE (Agent-Friendly Engineering) guidelines
    - https://raw.githubusercontent.com/dev-oleksandrv/afe/main/REVIEW.md
 2. Follow REVIEW.md exactly: its ground rules, its procedure, and its review template.
 3. Run the checks: yes.
-4. Don't modify the project. Write the finished review to ../afe-review-<project-name>.md and give me a short summary of the top next steps.
+4. Don't modify the project. Give me the finished review in the chat, then a short summary of the top next steps.
 ```
 
 Notes:
 
 - Change `Run the checks: yes` to `no` if the agent shouldn't run setup, tests, or builds. The review then marks those results as "not run".
+- To save the review as a file, name a folder outside the project in step 4 (for example ~/afe-reviews/). Agents in a sandbox may only be able to show the review in the chat.
 - Claude Code asks for permission to fetch the two URLs. If web access is blocked, download [GUIDE.md](GUIDE.md) and [REVIEW.md](REVIEW.md) somewhere outside your project and point the prompt at those local paths instead.
 - The same prompt works with other coding agents that can read URLs or local files.
 - For a high-stakes project, run the review in a fresh session so the agent has no prior context about the code.
